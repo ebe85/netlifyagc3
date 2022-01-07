@@ -207,7 +207,7 @@ app.use( async (req,res,next)=>{
     if("/ping"==req.url){
       res.status(200);
       res.send("ok");
-    }else if(req.url.indexOf(dataSetting["name-folder-sitemap"])>0&&req.url.indexOf(".xml")>0&&req.url.indexOf("/host-")==-1&&req.method === "GET"){
+    }else if(req.url.indexOf(dataSetting["name-folder-sitemap"])>0&&req.url.indexOf(".xml")>0&&req.url.indexOf("/vlink-")==-1&&req.method === "GET"){
       let statusSitemap=false;
       let linkSubSitemap="";
       targetSitemap.forEach(function(a){
@@ -259,7 +259,7 @@ app.use( async (req,res,next)=>{
         "content-type": "text/plain; charset=UTF-8"
       });
       res.end(data);
-    }else if (req.url.split("/assets/")[1] == undefined == false && req.method === "GET" && req.url.indexOf("/host-")==-1) {
+    }else if (req.url.split("/assets/")[1] == undefined == false && req.method === "GET" && req.url.indexOf("/vlink-")==-1) {
       let dataFile = req.url.split("/assets/")[1];
       if(dataFile.length>0){
         let files = await getListFile("assets");
